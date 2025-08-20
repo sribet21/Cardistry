@@ -1,0 +1,21 @@
+{
+  "name": "cardistry",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm --prefix apps/server run dev\" \"npm --prefix apps/web run dev\"",
+    "dev:server": "npm --prefix apps/server run dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/server run build && npm --prefix apps/web run build",
+    "start": "concurrently \"npm --prefix apps/server run start\" \"npm --prefix apps/web run preview\""
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2"
+  }
+}
+
+

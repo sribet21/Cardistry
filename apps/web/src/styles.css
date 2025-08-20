@@ -1,0 +1,50 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; margin: 0; }
+body { background: #0b0f14; color: #e6edf3; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif; }
+
+.app { max-width: 1200px; margin: 0 auto; padding: 16px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.header-info { display: flex; gap: 12px; font-size: 14px; opacity: 0.9; }
+
+.panel { background: #0f1720; border: 1px solid #1f2a37; border-radius: 12px; padding: 16px; margin-top: 16px; }
+.panel .row { display: flex; gap: 8px; margin-top: 8px; }
+
+input, select, button { background: #0b1220; color: #e6edf3; border: 1px solid #223047; border-radius: 8px; padding: 8px 12px; }
+button { cursor: pointer; }
+button.link { background: transparent; border: none; color: #7aa2f7; text-decoration: underline; padding: 0 4px; }
+
+.game { margin-top: 16px; display: grid; gap: 12px; }
+.hud { display: flex; gap: 16px; font-size: 14px; opacity: 0.9; }
+.table { height: 320px; border-radius: 16px; background: radial-gradient(ellipse at center, #0e1525 0%, #0b0f14 70%); border: 1px solid #1f2a37; }
+.controls { display: flex; gap: 8px; }
+
+/* Players ring and pile */
+.ring { position: relative; width: 100%; height: 100%; }
+.pile { position: absolute; left: 50%; top: 50%; width: 80px; height: 120px; transform: translate(-50%, -50%); border-radius: 10px; background: linear-gradient(180deg, #1a2432, #0f1720); border: 1px solid #253349; box-shadow: 0 6px 20px rgba(0,0,0,0.4); animation: pulse 2s ease-in-out infinite; }
+.seat { position: absolute; left: 0; top: 0; transform: translate(50%, 50%); text-align: center; }
+.seat .avatar { width: 36px; height: 36px; border-radius: 999px; background: #1a2432; display: grid; place-items: center; margin: 0 auto 4px; border: 1px solid #2b3b53; }
+.seat.me .avatar { background: #243552; }
+.seat .label { font-size: 12px; opacity: 0.9; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(122,162,247,0.2); }
+  50% { box-shadow: 0 6px 20px rgba(122,162,247,0.45); }
+}
+
+/* Cards hand */
+.hand { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.card { border: 1px solid #2b3b53; background: #0c1422; border-radius: 8px; padding: 6px 10px; }
+.card.selected { outline: 2px solid #7aa2f7; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: grid; place-items: center; }
+.modal-content { background: #0f1720; border: 1px solid #1f2a37; border-radius: 12px; padding: 16px; width: min(640px, 92vw); }
+
+@media (max-width: 768px) {
+  .header { flex-direction: column; align-items: flex-start; }
+  .header-info { flex-wrap: wrap; }
+  .controls { flex-wrap: wrap; }
+}
+
+
